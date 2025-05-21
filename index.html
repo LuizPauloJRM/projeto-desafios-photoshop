@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPB</title>
+    <link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">DPB</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Desafios</a></li>
+                <li><a href="#">Ranking</a></li>
+                <li><a href="#">Regras</a></li>
+                <li><a href="#" onclick="openLogin()">Entrar</a></li>
+                <li><a href="#">Cadastrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <div class="texto">
+            <h3>Uma história marcada</h3>
+            <h1>Explore o mundo DPB</h1>
+            <p>Embarque em uma jornada de criatividade e desafios únicos,<br> onde a arte digital se encontra com a
+                imaginação sem limites.</p>
+            <button>Deslize e veja mais</button>
+        </div>
+    </section>
+
+    <section class="desafios">
+        <h2>Desafios DPB</h2>
+        <p>Explore a diversidade de estilos e talentos, uma experiência visual <br>que inspira criatividade e celebra a
+            imaginação sem limites.</p>
+        <div class="cards">
+            <div class="card">
+                <img src="img1.jpg" alt="Desafio 1">
+                <button>Saiba mais</button>
+            </div>
+            <div class="card">
+                <img src="img2.jpg" alt="Desafio 2">
+                <button>Saiba mais</button>
+            </div>
+            <div class="card">
+                <img src="img3.jpg" alt="Desafio 3">
+                <button>Saiba mais</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">DPB</div>
+        <div class="social">
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h3>Login</h3>
+            <form>
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+                <label><input type="checkbox"> Lembrar-se</label>
+                <a href="#">Esqueceu a senha?</a>
+                <button type="submit">Entrar</button>
+                <div class="social-login">
+                    <p>Logar com:</p>
+                    <button type="button">Gmail</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
