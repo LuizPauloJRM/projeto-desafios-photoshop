@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f5f5;
@@ -34,66 +33,88 @@ header .logo img {
 nav {
   display: flex;
   align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
   gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
 }
 
 nav a {
+  margin: 0 15px; /* margem esquerda e direita para espaçar os links */
   text-decoration: none;
   font-size: 16px;
   color: #555;
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
-/* Hover links */
-nav a:hover {
-  color: #000;
-}
-
-/* Botões especiais */
-nav .entrar {
-  color: #5bbd3e;
+nav a.active {
+  color: #5bbd3e; /* verde */
   font-weight: bold;
 }
-
-nav .cadastrar {
-  background-color: #eaeaea;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  color: #555;
-}
-
-nav .cadastrar:hover {
-  background-color: #d5d5d5;
-}
-
-/* Banner principal */
-.hero {
-  background-image: url('caminho/para/imagem-do-banner.jpg'); /* Substituir */
-  background-size: cover;
-  background-position: center;
-  height: 500px;
+/* NOVO - Hero Slider */
+.hero-slider {
   position: relative;
+  height: 500px;
+  overflow: hidden;
   color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
-.hero h1 {
+.slides {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  filter: brightness(0.8); /* escurece direto a imagem */
+}
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.hero-text h1 {
   font-size: 3em;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.hero p {
+.hero-text h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
   font-size: 1.2em;
   margin-bottom: 30px;
 }
 
-.hero button {
+.hero-text button {
   background-color: white;
   color: #5bbd3e;
   border: none;
@@ -101,6 +122,30 @@ nav .cadastrar:hover {
   font-weight: bold;
   border-radius: 25px;
   cursor: pointer;
+}
+
+/* Indicadores (dots) */
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  opacity: 0.5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  opacity: 1;
 }
 
 /* Seção Desafios */
@@ -177,37 +222,71 @@ footer {
 /* Modal Login */
 .modal-login {
   position: absolute;
-  top: 100px;
+  top: 1px;
   right: 50px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 30px;
-  width: 300px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-login h2 {
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .modal-login input {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 12px;
+  margin: 8px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-login .remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.modal-login .remember input {
+  margin-right: 5px;
 }
 
 .modal-login button {
   background-color: #5bbd3e;
   color: white;
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .modal-login .login-google {
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.modal-login .login-google img {
+  width: 20px;
+  margin-right: 10px;
 }

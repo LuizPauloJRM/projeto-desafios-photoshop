@@ -10,75 +10,105 @@
 
 <body>
     <header>
-        <div class="logo">DPB</div>
+        <div class="logo">
+            <img src="logo.png" alt="DPB">
+        </div>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Desafios</a></li>
-                <li><a href="#">Ranking</a></li>
-                <li><a href="#">Regras</a></li>
-                <li><a href="#" onclick="openLogin()">Entrar</a></li>
-                <li><a href="#">Cadastrar</a></li>
-            </ul>
+            <a href="#">Home</a>
+            <a href="#">Desafios</a>
+            <a href="#">Ranking</a>
+            <a href="#">Regras</a>
+            <a href="#" class="entrar" onclick="openLogin()">Entrar</a>
+            <a href="#" class="cadastrar">Cadastrar</a>
         </nav>
     </header>
 
-    <section class="banner">
-        <div class="texto">
+    <!-- Hero Slider Section -->
+    <section class="hero-slider">
+        <div class="slides">
+            <div class="slide active"
+                style="background-image: url('assets/the_lord_of_the_four_seasons_by_bimartins_dav8aa3-pre.jpg');">
+            </div>
+            <div class="slide" style="background-image: url('assets/giraffe_by_bimartins_d61ov0a-pre.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/monkey_in_the_room_by_bimartins_d86tzn0-pre.jpg');">
+            </div>
+        </div>
+
+        <div class="hero-text">
             <h3>Uma história marcada</h3>
             <h1>Explore o mundo DPB</h1>
-            <p>Embarque em uma jornada de criatividade e desafios únicos,<br> onde a arte digital se encontra com a
-                imaginação sem limites.</p>
+            <p>Embarque em uma jornada de criatividade e desafios únicos,<br>
+                onde a arte digital se encontra com a imaginação sem limites.</p>
             <button>Deslize e veja mais</button>
+
+            <!-- Modal Login -->
+            <div id="loginModal" class="modal-login" style="display: none;">
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+                <div class="remember">
+                    <label><input type="checkbox"> Lembrar-se</label>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+                <button type="submit">Entrar</button>
+                <div class="login-google">
+                    <img src="google-icon.png" alt="Google"> Logar com Gmail
+                </div>
+            </div>
+        </div>
+
+        <div class="indicators">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
         </div>
     </section>
 
     <section class="desafios">
         <h2>Desafios DPB</h2>
-        <p>Explore a diversidade de estilos e talentos, uma experiência visual <br>que inspira criatividade e celebra a
-            imaginação sem limites.</p>
-        <div class="cards">
+        <p>Explore a diversidade de estilos e talentos, uma experiência visual <br>
+            que inspira criatividade e celebra a imaginação sem limites.</p>
+        <div class="card-container">
             <div class="card">
                 <img src="img1.jpg" alt="Desafio 1">
-                <button>Saiba mais</button>
+                <div class="info">
+                    <h3>1º Desafio DPB 2025</h3>
+                    <button>Saiba mais</button>
+                </div>
             </div>
             <div class="card">
                 <img src="img2.jpg" alt="Desafio 2">
-                <button>Saiba mais</button>
+                <div class="info">
+                    <h3>2º Desafio DPB 2025</h3>
+                    <button>Saiba mais</button>
+                </div>
             </div>
             <div class="card">
                 <img src="img3.jpg" alt="Desafio 3">
-                <button>Saiba mais</button>
+                <div class="info">
+                    <h3>3º Desafio DPB 2025</h3>
+                    <button>Saiba mais</button>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="logo">DPB</div>
+        <div class="logo">
+            <img src="logo.png" alt="DPB">
+        </div>
         <div class="social">
             <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
         </div>
     </footer>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLogin()">&times;</span>
-            <h3>Login</h3>
-            <form>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <label><input type="checkbox"> Lembrar-se</label>
-                <a href="#">Esqueceu a senha?</a>
-                <button type="submit">Entrar</button>
-                <div class="social-login">
-                    <p>Logar com:</p>
-                    <button type="button">Gmail</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <script src="js/scriptModal.js"></script>
 
-    <script src="script.js"></script>
+    <!-- Slider Script -->
+    <script src="js/scriptSlider.js"></script>
+
+    <script src="js/scriptLinks.js"></script>
+
+
 </body>
 
 </html>
